@@ -13,10 +13,9 @@ mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
 hands = mp_hands.Hands(static_image_mode=False, min_detection_confidence=0.3)
 
-# Define the labels you used
-labels_dict = {0: 'A', 1: 'B', 2: 'C'}
+# Define the labels where 65 is the ascii value of 'A'.
+labels_dict = {i: chr(65 + i)for i in range(26)}
 
-# Start the webcam
 cap = cv2.VideoCapture(0)
 
 while True:
@@ -50,7 +49,6 @@ while True:
             # Display the predicted label on the frame
             cv2.putText(frame, predicted_label, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
 
-    # Show the webcam feed
     cv2.imshow('Sign Language Recognition', frame)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):

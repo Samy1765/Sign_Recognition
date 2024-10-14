@@ -4,7 +4,6 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 import pickle
 
-# Load the dataset
 data = pd.read_csv('sign_language_data.csv')
 
 # Split the data into features (X) and labels (y)
